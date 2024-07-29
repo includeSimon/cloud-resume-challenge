@@ -20,6 +20,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
+      - name: Install aws-vault
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aws-vault
+
       - name: Deploy to S3
         run: make deploy-site
         env:
