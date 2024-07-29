@@ -19,5 +19,5 @@ What is Cloud Resume Challenge? - [The Cloud Resume Challenge](https://cloudresu
 - GitHub Actions
 
 ## Credits
-https://github.com/rishabkumar7
+https://github.com/rishabkumar7  
 https://github.com/openupthecloud
