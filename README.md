@@ -11,12 +11,12 @@ What is Cloud Resume Challenge? - [The Cloud Resume Challenge](https://cloudresu
 **Services Used**:
 
 - S3
-- AWS CloudFront
-- Certificate Manager
-- AWS Lambda
-- Dynamo DB
-- GitHub Actions
 - AWS SAM
+- AWS Lambda
+- AWS CloudFront
+- Dynamo DB
+- Certificate Manager
+- GitHub Actions
 
 ## Credits
 https://github.com/rishabkumar7
