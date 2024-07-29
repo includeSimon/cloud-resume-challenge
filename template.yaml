@@ -1,23 +1,5 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  cloud-resume-challenge
-
-  Sample SAM Template for cloud-resume-challenge
-
-Parameters:
-  WebsiteBucketName:
-    Type: String
-    Description: The name of the S3 bucket for the website
-  AcmCertificateArn:
-    Type: String
-    Description: The ARN of the ACM certificate in us-east-1
-  HostedZoneId:
-    Type: String
-    Description: The ID of the Route 53 hosted zone
-  DomainName:
-    Type: String
-    Description: The domain name
 
 Globals:
   Function:
@@ -30,7 +12,7 @@ Resources:
   MyWebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref WebsiteBucketName
+      BucketName: pirlog-simon-cloud-website
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
@@ -43,39 +25,81 @@ Resources:
         Rules:
           - ObjectOwnership: ObjectWriter
 
+  CloudResumeTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: cloudresume-test
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      DeletionProtectionEnabled: false
+
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: getViews
+      Runtime: python3.9
+      Role: arn:aws:iam::010438510855:role/service-role/getViews-role-gkcufb3f
+      Handler: lambda_function.lambda_handler
+      Description: ""
+      Timeout: 3
+      MemorySize: 128
+      TracingConfig:
+        Mode: PassThrough
+      PackageType: Zip
+      Architectures:
+        - x86_64
+      EphemeralStorage:
+        Size: 512
+      SnapStart:
+        ApplyOn: None
+        OptimizationStatus: Off
+      RuntimeVersionConfig:
+        RuntimeVersionArn: arn:aws:lambda:eu-west-1::runtime:be9e7121d3264b1e86158b38dbbb656c23dff979eb481793ee37b9e2b79fda22
+      LoggingConfig:
+        LogFormat: Text
+        LogGroup: /aws/lambda/getViews
+      CodeUri: ./path/to/your/code
+
   MyDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
         DefaultCacheBehavior:
           ViewerProtocolPolicy: redirect-to-https
-          TargetOriginId: !Sub '${WebsiteBucketName}.s3-website-eu-west-1.amazonaws.com'
+          TargetOriginId: pirlog-simon-cloud-website.s3-website-eu-west-1.amazonaws.com
           DefaultTTL: 0
           MinTTL: 0
           MaxTTL: 0
           ForwardedValues:
             QueryString: false
         Origins:
-          - DomainName: !Sub '${WebsiteBucketName}.s3-website-eu-west-1.amazonaws.com'
-            Id: !Sub '${WebsiteBucketName}.s3-website-eu-west-1.amazonaws.com'
+          - DomainName: pirlog-simon-cloud-website.s3-website-eu-west-1.amazonaws.com
+            Id: pirlog-simon-cloud-website.s3-website-eu-west-1.amazonaws.com
             CustomOriginConfig:
               OriginProtocolPolicy: http-only
         Enabled: true
         DefaultRootObject: index.html
         ViewerCertificate:
-          AcmCertificateArn: !Ref AcmCertificateArn
+          AcmCertificateArn: arn:aws:acm:us-east-1:010438510855:certificate/0a397c4c-e6d1-4f74-adbc-fb09c848ccaa
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
         Aliases:
-          - !Ref DomainName
-          - !Sub 'www.${DomainName}'
+          - simondevops.online
+          - www.simondevops.online
 
   MyRoute53Record:
     Type: "AWS::Route53::RecordSetGroup"
     Properties:
-      HostedZoneId: !Ref HostedZoneId
+      HostedZoneId: Z086652426I94UVQSUO5N # Your hosted zone ID
       RecordSets:
-        - Name: !Ref DomainName
+        - Name: simondevops.online # Your domain name
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2 # CloudFront hosted zone ID (do not change)
@@ -92,31 +116,4 @@ Resources:
             Effect: Allow
             Principal: "*"
             Action: "s3:GetObject"
-            Resource: !Sub "arn:aws:s3:::${WebsiteBucketName}/*"
-
-
-  HelloWorldFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: hello_world/
-      Handler: app.lambda_handler
-      Runtime: python3.9
-      Architectures:
-        - x86_64
-      Events:
-        HelloWorld:
-          Type: Api
-          Properties:
-            Path: /hello
-            Method: get
-
-Outputs:
-  HelloWorldApi:
-    Description: API Gateway endpoint URL for Prod stage for Hello World function
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  HelloWorldFunction:
-    Description: Hello World Lambda Function ARN
-    Value: !GetAtt HelloWorldFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: Implicit IAM Role created for Hello World function
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+            Resource: !Sub "arn:aws:s3:::pirlog-simon-cloud-website/*"

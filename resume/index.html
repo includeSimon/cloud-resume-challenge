@@ -1,209 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Pirlog Simon Resume AWS</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+      rel="stylesheet"
+      type="text/css"
+    />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-</head>
+  </head>
 
-<body id="page-top">
+  <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Simon Pirlog</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="assets/img/profile.jpg" alt="..." /></span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li> -->
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Certifications</a></li>
-            </ul>
-        </div>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+      id="sideNav"
+    >
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Simon Pirlog</span>
+        <span class="d-none d-lg-block"
+          ><img
+            class="img-fluid img-profile rounded-circle mx-auto mb-2"
+            src="assets/img/profile.jpg"
+            alt="..."
+        /></span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#experience"
+              >Experience</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#education"
+              >Education</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#awards"
+              >Certifications</a
+            >
+          </li>
+          <li class="nav-item">
+            <script>
+                fetch("https://3buljsfsvxpxdhtscfwsvcacue0djxxm.lambda-url.eu-west-1.on.aws/")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById("counter-number").innerHTML = data.views;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+            </script>
+            
+
+            <hr class="my-1" />
+            <!-- Divider -->
+            <span class="nav-link">
+              <i class="fas fa-users"></i>
+              <!-- Icon for the counter -->
+              <strong style="font-size: 1em">Visits:</strong>
+              <span id="counter-number" class="counter-number not-a-link" style="font-size: 1.2em"
+                >Loading...</span
+              >
+            </span>
+          </li>
+        </ul>
+      </div>
     </nav>
     <!-- Page Content-->
     <div class="container-fluid p-0">
-        <!-- About-->
-        <section class="resume-section" id="about">
-            <div class="resume-section-content">
-                <h1 class="mb-0">
-                    Simon
-                    <span class="text-primary">Pirlog</span>
-                </h1>
-                <div class="subheading mb-5">
-                    Cluj Napoca · Romania · (+40) 722 930 241 ·
-                    <a href="mailto:simon.pirlog@yahoo.com">simon.pirlog@yahoo.com</a>
-                </div>
-                <p class="lead mb-5">Hello there! I'm Simon, a Junior Technical Consultant with a strong passion for
-                    DevOps and Software Development. </p>
+      <!-- About-->
+      <section class="resume-section" id="about">
+        <div class="resume-section-content">
+          <h1 class="mb-0">
+            Simon
+            <span class="text-primary">Pirlog</span>
+          </h1>
+          <div class="subheading mb-5">
+            Cluj Napoca · Romania · (+40) 722 930 241 ·
+            <a href="mailto:simon.pirlog@yahoo.com">simon.pirlog@yahoo.com</a>
+          </div>
 
-                <p class="lead mb-5" style="font-family: 'Arial', cursive;">This page has been viewed <span id="counter"
-                        style="font-weight: bold;">0</span> times.</p>
-                <div class="social-icons">
-                    <a class="social-icon" href="https://www.linkedin.com/in/simon-p%C3%AErlog-bb41a716b/"
-                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="https://github.com/includeSimon" target="_blank"><i
-                            class="fab fa-github"></i></a>
-                </div>
+          <p class="lead mb-5">
+            Hello there! I'm Simon, a Junior Technical Consultant with a strong
+            passion for DevOps and Software Development.
+          </p>
+
+          <!-- <div id="counter" class="lead mb-5">
+                    Couldn't read views
+                </div> -->
+
+          <!-- <p class="lead mb-5" style="font-family: 'Arial', cursive;">This page has been viewed <span id="counter"
+                        style="font-weight: bold;">54</span> times.</p> -->
+
+          <div class="social-icons">
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/simon-p%C3%AErlog-bb41a716b/"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              class="social-icon"
+              href="https://github.com/includeSimon"
+              target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <hr class="m-0" />
+      <!-- Experience-->
+      <section class="resume-section" id="experience">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Experience</h2>
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">Junior Technical Consultant with German</h3>
+              <div class="subheading mb-3">NTT Data Romania</div>
+              <ul>
+                <li>
+                  Leverage proactive strategies for 2nd level support and
+                  application management for a leading Bavarian automotive
+                  manufacturer.
+                </li>
+                <li>
+                  Implement Oracle Database and Linux System administration
+                  (e.g., tuning, tablespaces, indexes) to ensure optimal
+                  performance.
+                </li>
+                <li>
+                  Utilize Azure for incident monitoring and management,
+                  integrating technologies such as Splunk, Terraform, and
+                  Grafana.
+                </li>
+                <li>
+                  Oversee Incident, Problem, and Change Processes within the PIC
+                  framework, fostering collaboration through daily meetings with
+                  NTT Data Germany colleagues and Bavarian plant workers.
+                </li>
+                <li>
+                  Significantly enhanced time management and communication
+                  skills, driving efficiency and effectiveness in operations.
+                </li>
+              </ul>
             </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Experience-->
-        <section class="resume-section" id="experience">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Experience</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Junior Technical Consultant with German</h3>
-                        <div class="subheading mb-3">NTT Data Romania</div>
-                        <ul>
-                            <li>Leverage proactive strategies for 2nd level support and application management for a
-                                leading Bavarian automotive manufacturer.</li>
-                            <li>Implement Oracle Database and Linux System administration (e.g., tuning, tablespaces,
-                                indexes) to ensure optimal performance.</li>
-                            <li>Utilize Azure for incident monitoring and management, integrating technologies such as
-                                Splunk, Terraform, and Grafana.</li>
-                            <li>Oversee Incident, Problem, and Change Processes within the PIC framework, fostering
-                                collaboration through daily meetings with NTT Data Germany colleagues and Bavarian plant
-                                workers.</li>
-                            <li>Significantly enhanced time management and communication skills, driving efficiency and
-                                effectiveness in operations.</li>
-                        </ul>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">November 2023 - Present</span></div>
-                </div>
-
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">DevOps Intern</h3>
-                        <div class="subheading mb-3">Winnow Solutions</div>
-                        <ul class>
-                            <li>Summer Internship at a Commercial Food Waste Solutions company.</li>
-                            <li>Deployed and managed resources in AWS.</li>
-                            <li>Created CI/CD Pipelines using Jenkins.</li>
-                            <li>Automated pipeline creation using JobDSL Plugin.</li>
-                            <li>DNS Management with AWS Route 53 to host a Hackathon app.</li>
-                            <li>Provisioned infrastructure and IAM configurations using Terraform.</li>
-                            <li>Managed MFA implementation and user accounts on AWS.</li>
-                            <li>Maintained VPN configurations with OpenTunnel for MacBook units.</li>
-                            <li>Collaborated with teams using Git, Bitbucket, and Kanban.</li>
-                        </ul>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">July 2023 - September 2023</span></div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Software Developer Summer Intern</h3>
-                        <div class="subheading mb-3">STIWA Automation GmbH</div>
-                        <ul class="spaced-list">
-                            <li>Full-time internship in Austria for a major automotive parts company.</li>
-                            <li>Developed a layout application for an existing program used in production.</li>
-                            <li>Learned about the Software Development Lifecycle.</li>
-                            <li>Used Docker to run the SQL Database.</li>
-                            <li>Used C# .NET 6, HTML, JavaScript, Docker, and SQL.</li>
-                        </ul>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">August 2022 - October 2022</span></div>
-                </div>
-
+            <div class="flex-shrink-0">
+              <span class="text-primary">November 2023 - Present</span>
             </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Education-->
-        <section class="resume-section" id="education">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Education</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
-                        <div class="subheading mb-3">Master of Science</div>
-                        <div>Computer Science - Cybersecurity Specialization</div>
-                        <p>Courses taken: Cryptography, Complex Networks in Security, Web Security, Grid and Cloud
-                            Computing</p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">October 2023 - July 2025</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
-                        <div class="subheading mb-3">Bachelor of Science</div>
-                        <div>Computer Science</div>
-                        <p>Courses taken: Cloud Applications Architecture, Agile Methodologies, Coding and Design
-                            Principles, Programming Classes
-                        </p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">October 2020 - July 2023</span></div>
-                </div>
+          </div>
+
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">DevOps Intern</h3>
+              <div class="subheading mb-3">Winnow Solutions</div>
+              <ul class>
+                <li>
+                  Summer Internship at a Commercial Food Waste Solutions
+                  company.
+                </li>
+                <li>Deployed and managed resources in AWS.</li>
+                <li>Created CI/CD Pipelines using Jenkins.</li>
+                <li>Automated pipeline creation using JobDSL Plugin.</li>
+                <li>
+                  DNS Management with AWS Route 53 to host a Hackathon app.
+                </li>
+                <li>
+                  Provisioned infrastructure and IAM configurations using
+                  Terraform.
+                </li>
+                <li>Managed MFA implementation and user accounts on AWS.</li>
+                <li>
+                  Maintained VPN configurations with OpenTunnel for MacBook
+                  units.
+                </li>
+                <li>
+                  Collaborated with teams using Git, Bitbucket, and Kanban.
+                </li>
+              </ul>
             </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Skills-->
-        <section class="resume-section" id="skills">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Skills</h2>
-                <div class="subheading mb-3">Programming Languages & Tools</div>
-                <ul class="list-inline dev-icons">
-                    <li class="list-inline-item"><i class="fab fa-aws"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-docker"></i></li>
-                    <li class="list-inline-item"><i class="fas fa-cubes"></i></li>
-                    <li class="list-inline-item"></li><i class="fa-solid fa-dharmachakra"></i>
-                    <li class="list-inline-item"><i class="fa-brands fa-jenkins"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-linux"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-git"></i></li>
-                    <li class="list-inline-item"><i class="fas fa-database"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-java"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-microsoft"></i></li>
-                    <li class="list-inline-item"><i class="fas fa-cloud"></i></li>
-                    <li class="list-inline-item"><i class="fas fa-shield-alt"></i></li>
-
-
-                </ul>
-                <div class="subheading mb-3">Soft skills</div>
-                <ul class="fa-ul mb-0">
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        C1 English
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        B2 German
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Societate Hermes Volunteer - Faculty of Informatics Volunteering Club
-
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Google Developer Student Club UBB Volunteer
-                    </li>
-                </ul>
+            <div class="flex-shrink-0">
+              <span class="text-primary">July 2023 - September 2023</span>
             </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Interests-->
-        <!-- <section class="resume-section" id="interests">
+          </div>
+
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">Software Developer Summer Intern</h3>
+              <div class="subheading mb-3">STIWA Automation GmbH</div>
+              <ul class="spaced-list">
+                <li>
+                  Full-time internship in Austria for a major automotive parts
+                  company.
+                </li>
+                <li>
+                  Developed a layout application for an existing program used in
+                  production.
+                </li>
+                <li>Learned about the Software Development Lifecycle.</li>
+                <li>Used Docker to run the SQL Database.</li>
+                <li>Used C# .NET 6, HTML, JavaScript, Docker, and SQL.</li>
+              </ul>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">August 2022 - October 2022</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="m-0" />
+      <!-- Education-->
+      <section class="resume-section" id="education">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Education</h2>
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
+              <div class="subheading mb-3">Master of Science</div>
+              <div>Computer Science - Cybersecurity Specialization</div>
+              <p>
+                Courses taken: Cryptography, Complex Networks in Security, Web
+                Security, Grid and Cloud Computing
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">October 2023 - July 2025</span>
+            </div>
+          </div>
+          <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="flex-grow-1">
+              <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
+              <div class="subheading mb-3">Bachelor of Science</div>
+              <div>Computer Science</div>
+              <p>
+                Courses taken: Cloud Applications Architecture, Agile
+                Methodologies, Coding and Design Principles, Programming Classes
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">October 2020 - July 2023</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="m-0" />
+      <!-- Skills-->
+      <section class="resume-section" id="skills">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Skills</h2>
+          <div class="subheading mb-3">Programming Languages & Tools</div>
+          <ul class="list-inline dev-icons">
+            <li class="list-inline-item"><i class="fab fa-aws"></i></li>
+            <li class="list-inline-item"><i class="fab fa-docker"></i></li>
+            <li class="list-inline-item"><i class="fas fa-cubes"></i></li>
+            <li class="list-inline-item"></li>
+            <i class="fa-solid fa-dharmachakra"></i>
+            <li class="list-inline-item">
+              <i class="fa-brands fa-jenkins"></i>
+            </li>
+            <li class="list-inline-item"><i class="fab fa-linux"></i></li>
+            <li class="list-inline-item"><i class="fab fa-git"></i></li>
+            <li class="list-inline-item"><i class="fas fa-database"></i></li>
+            <li class="list-inline-item"><i class="fab fa-java"></i></li>
+            <li class="list-inline-item"><i class="fab fa-microsoft"></i></li>
+            <li class="list-inline-item"><i class="fas fa-cloud"></i></li>
+            <li class="list-inline-item"><i class="fas fa-shield-alt"></i></li>
+          </ul>
+          <div class="subheading mb-3">Soft skills</div>
+          <ul class="fa-ul mb-0">
+            <li>
+              <span class="fa-li"><i class="fas fa-check"></i></span>
+              C1 English
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-check"></i></span>
+              B2 German
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-check"></i></span>
+              Societate Hermes Volunteer - Faculty of Informatics Volunteering
+              Club
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-check"></i></span>
+              Google Developer Student Club UBB Volunteer
+            </li>
+          </ul>
+        </div>
+      </section>
+      <hr class="m-0" />
+      <!-- Interests-->
+      <!-- <section class="resume-section" id="interests">
             <div class="resume-section-content">
                 <h2 class="mb-5">Interests</h2>
                 <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid
@@ -215,23 +354,24 @@
             </div>
         </section>
         <hr class="m-0" /> -->
-        <!-- Awards-->
-        <section class="resume-section" id="awards">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Certifications</h2>
-                <ul class="fa-ul mb-0">
-                    <li>
-                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                        Microsoft Certified: Azure Fundamentals (AZ-900)
-                    </li>
-                </ul>
-            </div>
-        </section>
+      <!-- Awards-->
+      <section class="resume-section" id="awards">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Certifications</h2>
+          <ul class="fa-ul mb-0">
+            <li>
+              <span class="fa-li"
+                ><i class="fas fa-trophy text-warning"></i
+              ></span>
+              Microsoft Certified: Azure Fundamentals (AZ-900)
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-</body>
-
+  </body>
 </html>
