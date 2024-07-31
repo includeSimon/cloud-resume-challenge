@@ -76,6 +76,6 @@ resource "aws_lambda_function_url" "url" {
         allow_credentials = true
         allow_methods = ["*"]
         allow_origins = ["*"]
-        max_age = 86300
+        max_age = 86400
     }
 }
