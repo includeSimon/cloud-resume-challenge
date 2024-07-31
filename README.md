@@ -20,6 +20,6 @@ What is Cloud Resume Challenge? - [The Cloud Resume Challenge](https://cloudresu
 - Certificate Manager
 - AWS SAM
 
-## Credits
+## Research resources
 https://github.com/rishabkumar7  
 https://github.com/openupthecloud
