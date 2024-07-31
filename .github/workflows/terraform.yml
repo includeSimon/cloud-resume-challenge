@@ -18,12 +18,16 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
-      - name: Terraform Init
+      - name: Make Import Script Executable
+        run: chmod +x infra/import_resources.sh
+
+      - name: Run Import Script
         working-directory: infra
+        run: ./import_resources.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: terraform init
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
       - name: Terraform Plan
         working-directory: infra
