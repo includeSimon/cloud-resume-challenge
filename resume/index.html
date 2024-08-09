@@ -75,27 +75,30 @@
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards"
-              >Certifications</a
-            >
+            <a class="nav-link js-scroll-trigger" href="#awards">Projects</a>
           </li>
           <li class="nav-item">
             <script>
-                fetch("https://3buljsfsvxpxdhtscfwsvcacue0djxxm.lambda-url.eu-west-1.on.aws/")
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        document.getElementById("counter-number").innerHTML = data.views;
-                    })
-                    .catch(error => {
-                        console.error('There was a problem with the fetch operation:', error);
-                    });
+              fetch(
+                "https://3buljsfsvxpxdhtscfwsvcacue0djxxm.lambda-url.eu-west-1.on.aws/"
+              )
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  document.getElementById("counter-number").innerHTML =
+                    data.views;
+                })
+                .catch((error) => {
+                  console.error(
+                    "There was a problem with the fetch operation:",
+                    error
+                  );
+                });
             </script>
-            
 
             <hr class="my-1" />
             <!-- Divider -->
@@ -103,7 +106,10 @@
               <i class="fas fa-users"></i>
               <!-- Icon for the counter -->
               <strong style="font-size: 1em">Visits:</strong>
-              <span id="counter-number" class="counter-number not-a-link" style="font-size: 1.2em"
+              <span
+                id="counter-number"
+                class="counter-number not-a-link"
+                style="font-size: 1.2em"
                 >Loading...</span
               >
             </span>
@@ -114,7 +120,7 @@
     <!-- Page Content-->
     <div class="container-fluid p-0">
       <!-- About-->
-      <section class="resume-section" id="about">
+      <section class="resume-section" id="about" style="align-items: center">
         <div class="resume-section-content">
           <h1 class="mb-0">
             Simon
@@ -154,6 +160,44 @@
         </div>
       </section>
       <hr class="m-0" />
+      <!-- Education-->
+      <section class="resume-section" id="education">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Education</h2>
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
+              <div class="subheading mb-3">Master of Science</div>
+              <div><b>Computer Science - Cybersecurity Specialization</b></div>
+              <p>
+                Courses taken: Cryptography, Complex Networks in Security, Web
+                Security, Grid and Cloud Computing
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">October 2023 - July 2025</span>
+            </div>
+          </div>
+          <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="flex-grow-1">
+              <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
+              <div class="subheading mb-3">Bachelor of Science</div>
+              <div><b>Computer Science</b></div>
+              <p>
+                Courses taken: Cloud Applications Architecture, Agile
+                Methodologies, Coding and Design Principles, Programming Classes
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">October 2020 - July 2023</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="m-0" />
+
       <!-- Experience-->
       <section class="resume-section" id="experience">
         <div class="resume-section-content">
@@ -259,67 +303,12 @@
         </div>
       </section>
       <hr class="m-0" />
-      <!-- Education-->
-      <section class="resume-section" id="education">
-        <div class="resume-section-content">
-          <h2 class="mb-5">Education</h2>
-          <div
-            class="d-flex flex-column flex-md-row justify-content-between mb-5"
-          >
-            <div class="flex-grow-1">
-              <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
-              <div class="subheading mb-3">Master of Science</div>
-              <div>Computer Science - Cybersecurity Specialization</div>
-              <p>
-                Courses taken: Cryptography, Complex Networks in Security, Web
-                Security, Grid and Cloud Computing
-              </p>
-            </div>
-            <div class="flex-shrink-0">
-              <span class="text-primary">October 2023 - July 2025</span>
-            </div>
-          </div>
-          <div class="d-flex flex-column flex-md-row justify-content-between">
-            <div class="flex-grow-1">
-              <h3 class="mb-0">Babes-Bolyai University, Cluj-Napoca</h3>
-              <div class="subheading mb-3">Bachelor of Science</div>
-              <div>Computer Science</div>
-              <p>
-                Courses taken: Cloud Applications Architecture, Agile
-                Methodologies, Coding and Design Principles, Programming Classes
-              </p>
-            </div>
-            <div class="flex-shrink-0">
-              <span class="text-primary">October 2020 - July 2023</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <hr class="m-0" />
-      <!-- Skills-->
+
+      <!-- Skills and Certifications-->
       <section class="resume-section" id="skills">
         <div class="resume-section-content">
-          <h2 class="mb-5">Skills</h2>
-          <div class="subheading mb-3">Programming Languages & Tools</div>
-          <ul class="list-inline dev-icons">
-            <li class="list-inline-item"><i class="fab fa-aws"></i></li>
-            <li class="list-inline-item"><i class="fab fa-docker"></i></li>
-            <li class="list-inline-item"><i class="fas fa-cubes"></i></li>
-            <li class="list-inline-item"></li>
-            <i class="fa-solid fa-dharmachakra"></i>
-            <li class="list-inline-item">
-              <i class="fa-brands fa-jenkins"></i>
-            </li>
-            <li class="list-inline-item"><i class="fab fa-linux"></i></li>
-            <li class="list-inline-item"><i class="fab fa-git"></i></li>
-            <li class="list-inline-item"><i class="fas fa-database"></i></li>
-            <li class="list-inline-item"><i class="fab fa-java"></i></li>
-            <li class="list-inline-item"><i class="fab fa-microsoft"></i></li>
-            <li class="list-inline-item"><i class="fas fa-cloud"></i></li>
-            <li class="list-inline-item"><i class="fas fa-shield-alt"></i></li>
-          </ul>
-          <div class="subheading mb-3">Soft skills</div>
-          <ul class="fa-ul mb-0">
+          <h2 class="mb-5">Skills and Certifications</h2>
+          <ul class="fa-ul">
             <li>
               <span class="fa-li"><i class="fas fa-check"></i></span>
               C1 English
@@ -338,26 +327,6 @@
               Google Developer Student Club UBB Volunteer
             </li>
           </ul>
-        </div>
-      </section>
-      <hr class="m-0" />
-      <!-- Interests-->
-      <!-- <section class="resume-section" id="interests">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Interests</h2>
-                <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid
-                    skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking,
-                    free climbing, and kayaking.</p>
-                <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television
-                    shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest
-                    technology advancements in the front-end web development world.</p>
-            </div>
-        </section>
-        <hr class="m-0" /> -->
-      <!-- Awards-->
-      <section class="resume-section" id="awards">
-        <div class="resume-section-content">
-          <h2 class="mb-5">Certifications</h2>
           <ul class="fa-ul mb-0">
             <li>
               <span class="fa-li"
@@ -365,7 +334,56 @@
               ></span>
               Microsoft Certified: Azure Fundamentals (AZ-900)
             </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fas fa-trophy text-warning"></i
+              ></span>
+              ITIL® v4 Foundation
+            </li>
           </ul>
+          <div class="subheading mb-5"></div>
+          <div class="subheading">Programming Languages & Tools</div>
+          <ul class="list-inline dev-icons">
+            <li class="list-inline-item"><i class="fab fa-aws"></i></li>
+            <li class="list-inline-item"><i class="fab fa-docker"></i></li>
+            <li class="list-inline-item"><i class="fas fa-cubes"></i></li>
+            <li class="list-inline-item"></li>
+            <i class="fa-solid fa-dharmachakra"></i>
+            <li class="list-inline-item">
+              <i class="fa-brands fa-jenkins"></i>
+            </li>
+            <li class="list-inline-item"><i class="fab fa-linux"></i></li>
+            <li class="list-inline-item"><i class="fab fa-git"></i></li>
+            <li class="list-inline-item"><i class="fas fa-database"></i></li>
+            <li class="list-inline-item"><i class="fab fa-java"></i></li>
+            <li class="list-inline-item"><i class="fab fa-microsoft"></i></li>
+            <li class="list-inline-item"><i class="fas fa-cloud"></i></li>
+            <li class="list-inline-item"><i class="fas fa-shield-alt"></i></li>
+          </ul>
+        </div>
+      </section>
+      <hr class="m-0" />
+
+      <section class="resume-section" id="certifications">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Projects</h2>
+          <div class="flex-grow-1">
+            <h3 class="mb-0">Software Developer Summer Intern</h3>
+            <div class="subheading mb-3"></div>
+            <ul class="spaced-list">
+              <li>
+                Built a static HTML/CSS resume site on AWS S3 with HTTPS and
+                custom domain, distributed via CloudFront.
+              </li>
+              <li>
+                Implemented a visitor counter with AWS Lambda and DynamoDB.
+              </li>
+              <li>
+                Set up CI/CD pipelines using GitHub Actions, managed with
+                Terraform and AWS SAM..
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
